@@ -1,7 +1,7 @@
 import React from "react";
 import { data } from "../Data";
+import toast from "react-hot-toast";
 function Cards() {
-  console.log(data);
   return (
     <div>
       <section className="text-gray-400   body-font">
@@ -9,7 +9,7 @@ function Cards() {
           <div className="flex flex-col"></div>
           <div className="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
             {data?.map((item) => (
-              <div className="p-4 md:w-1/3 sm:mb-0 mb-6">
+              <div key={item.title} className="p-4 md:w-1/3 sm:mb-0 mb-6">
                 <div className="rounded-lg h-64 overflow-hidden">
                   <img
                     alt={item.title}
@@ -30,12 +30,23 @@ function Cards() {
                   >
                     <a href={item.frontend}>Frontend</a>
                   </button>
-                  <button
-                    className="middle none center mr-4 rounded-lg bg-red-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-red-500/20 transition-all hover:shadow-lg hover:shadow-red-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                    data-ripple-light="true"
-                  >
-                    <a href={item.backend}>Backend</a>
-                  </button>
+                  {item.backend === "false" ? (
+                    <button
+                      className="middle none center mr-4 rounded-lg bg-red-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-red-500/20 transition-all hover:shadow-lg hover:shadow-red-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                      data-ripple-light="true"
+                      onClick={() => toast.error("No backend Code...!")}
+                    >
+                      <div>Backend</div>
+                    </button>
+                  ) : (
+                    <button
+                      className="middle none center mr-4 rounded-lg bg-red-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-red-500/20 transition-all hover:shadow-lg hover:shadow-red-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                      data-ripple-light="true"
+                    >
+                      <a href={item.backend}>Backend</a>
+                    </button>
+                  )}
+
                   <button
                     className="middle  mt-2  none center mr-4 rounded-lg bg-green-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                     data-ripple-light="true"
@@ -51,81 +62,6 @@ function Cards() {
                 <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/ripple.js"></script>
               </div>
             ))}
-
-            {/* <div className="p-4 md:w-1/3 sm:mb-0 mb-6">
-              <div className="rounded-lg h-64 overflow-hidden">
-                <img
-                  alt="content"
-                  className="object-cover object-center h-full w-full"
-                  src={blogsupLogo}
-                />
-              </div>
-              <h2 className="text-xl title-font text-black font-semibold my-5">
-                BlogsUp
-              </h2>
-              <p className="text-base  sm:min-h-[120px] leading-relaxed mt-2">
-                Blogsup is a Social media platform. Users can Read blogs and
-                interact with that blogs by giving like and comment.
-              </p>
-              <div className=" my-2">
-                <button
-                  className="middle none center mr-4 rounded-lg bg-blue-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-blue-500/20 transition-all hover:shadow-lg hover:shadow-blue-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                  data-ripple-light="true"
-                >
-                  <a href="https://github.com/SanuRaj-K/blog-s_up_frontEnd">
-                    Frontend
-                  </a>
-                </button>
-                <button
-                  className="middle none center mr-4 rounded-lg bg-red-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-red-500/20 transition-all hover:shadow-lg hover:shadow-red-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                  data-ripple-light="true"
-                >
-                  <a href="https://github.com/SanuRaj-K/blog-s_up-backend">
-                    Backend
-                  </a>
-                </button>
-                <button
-                  className="middle mt-2 none center mr-4 rounded-lg bg-green-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                  data-ripple-light="true"
-                >
-                  <a href="https://blogsup.shop/">Live</a>
-                </button>
-              </div>
-            </div> */}
-            {/* <div className="p-4 md:w-1/3 sm:mb-0 mb-6">
-              <div className="rounded-lg h-64 overflow-hidden">
-                <img
-                  alt="content"
-                  className="object-cover object-center h-full w-full"
-                  src={petShop}
-                />
-              </div>
-
-              <h2 className="text-xl   title-font text-black font-semibold my-5">
-                PetFood Shop
-              </h2>
-              <p className="text-base  h-[110px] leading-relaxed mt-2">
-                PetFood Shop is a E-commerce platform. Users can View and buy
-                pet food products. Currently this server is not live
-              </p>
-
-              <div className=" my-2">
-                <button
-                  className="middle none center mr-4 rounded-lg bg-blue-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-blue-500/20 transition-all hover:shadow-lg hover:shadow-blue-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                  data-ripple-light="true"
-                >
-                  <a href="https://github.com/SanuRaj-K/PetFoodShop">
-                    Frontend
-                  </a>
-                </button>
-                <button
-                  className="middle none center mr-4 rounded-lg bg-red-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-red-500/20 transition-all hover:shadow-lg hover:shadow-red-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                  data-ripple-light="true"
-                >
-                  <a href="https://github.com/SanuRaj-K/Node">Backend</a>
-                </button>
-              </div>
-            </div> */}
           </div>
         </div>
       </section>
