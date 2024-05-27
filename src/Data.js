@@ -27,6 +27,7 @@ export const data = [
     pet food products. Currently this server is not live`,
     frontend: "https://github.com/SanuRaj-K/PetFoodShop",
     backend: "https://github.com/SanuRaj-K/Node",
+    live: "false",
     image:
       "https://res.cloudinary.com/dgoermgtp/image/upload/v1716805567/Projects/petshop_x8gucf.png",
   },
@@ -36,7 +37,7 @@ export const data = [
     frontend: "https://github.com/SanuRaj-K/firebase-todo",
     backend: "false",
     live: "firebase-todo-delta.vercel.app",
-    image:'https://res.cloudinary.com/dgoermgtp/image/upload/v1716806289/Projects/todo-logo_twpge2.jpg'
+    image:
+      "https://res.cloudinary.com/dgoermgtp/image/upload/v1716806289/Projects/todo-logo_twpge2.jpg",
   },
-
 ];

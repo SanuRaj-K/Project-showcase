@@ -28,7 +28,9 @@ function Cards() {
                     className="middle none center mr-4 rounded-lg bg-blue-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-blue-500/20 transition-all hover:shadow-lg hover:shadow-blue-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                     data-ripple-light="true"
                   >
-                    <a href={item.frontend}>Frontend</a>
+                    <a target="blank" href={item.frontend}>
+                      Frontend
+                    </a>
                   </button>
                   {item.backend === "false" ? (
                     <button
@@ -43,16 +45,29 @@ function Cards() {
                       className="middle none center mr-4 rounded-lg bg-red-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-red-500/20 transition-all hover:shadow-lg hover:shadow-red-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                       data-ripple-light="true"
                     >
-                      <a href={item.backend}>Backend</a>
+                      <a target="blank" href={item.backend}>
+                        Backend
+                      </a>
                     </button>
                   )}
-
-                  <button
-                    className="middle  mt-2  none center mr-4 rounded-lg bg-green-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                    data-ripple-light="true"
-                  >
-                    <a href={item.live}>Live</a>
-                  </button>
+                  {item.live === "false" ? (
+                    <button
+                    onClick={()=>toast.error("Project is not live...!")}
+                      className="middle  mt-2  none center mr-4 rounded-lg bg-green-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                      data-ripple-light="true"
+                    >
+                       <div>Live</div>
+                    </button>
+                  ) : (
+                    <button
+                      className="middle  mt-2  none center mr-4 rounded-lg bg-green-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                      data-ripple-light="true"
+                    >
+                      <a target="blank" href={item.live}>
+                        Live
+                      </a>
+                    </button>
+                  )}
                 </div>
                 <link
                   rel="stylesheet"
