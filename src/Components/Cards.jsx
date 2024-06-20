@@ -20,7 +20,7 @@ function Cards() {
                 <h2 className="text-xl title-font text-black font-semibold my-5">
                   {item.title}
                 </h2>
-                <p className="text-base sm:min-h-[70px] leading-relaxed mt-2">
+                <p className="text-base sm:min-h-[170px]   mt-2">
                   {item.description}
                 </p>
                 <div className=" my-2">
