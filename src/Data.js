@@ -36,7 +36,7 @@ export const data = [
     description: `Created an todo app using firebase authentication and storage. Its a  todo app. Users can easly regiter and use this todo app by using google authentication`,
     frontend: "https://github.com/SanuRaj-K/firebase-todo",
     backend: "false",
-    live: "firebase-todo-delta.vercel.app",
+    live: "https://firebase-todo-delta.vercel.app",
     image:
       "https://res.cloudinary.com/dgoermgtp/image/upload/v1716806289/Projects/todo-logo_twpge2.jpg",
   },
